@@ -5,7 +5,10 @@ namespace Anitec.Platform.Shared.Infrastructure.Interfaces.AspNetCore.Configurat
 
 public class KebabCaseRouteNamingConvention : IControllerModelConvention
 {
-    
+    /// <summary>
+    ///     This method applies the kebab-case naming convention to the controller.
+    /// </summary>
+    /// <param name="controller">The <see cref="ControllerModel" /></param>
     public void Apply(ControllerModel controller)
     {
         foreach (var selector in controller.Selectors)
