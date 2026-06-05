@@ -3,13 +3,9 @@ using Microsoft.AspNetCore.Mvc.ApplicationModels;
 
 namespace Anitec.Platform.Shared.Infrastructure.Interfaces.AspNetCore.Configuration;
 
-
 public class KebabCaseRouteNamingConvention : IControllerModelConvention
 {
-    /// <summary>
-    ///     This method applies the kebab-case naming convention to the controller.
-    /// </summary>
-    /// <param name="controller">The <see cref="ControllerModel" /></param>
+    
     public void Apply(ControllerModel controller)
     {
         foreach (var selector in controller.Selectors)
