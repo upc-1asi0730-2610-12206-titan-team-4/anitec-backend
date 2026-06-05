@@ -26,7 +26,7 @@ public class ProblemDetailsFactory
     {
         _errorLocalizer = errorLocalizer;
         _commonLocalizer = commonLocalizer;
-        _aspNetCoreProblemDetailsFactory = aspNetCoreProblemDetailsFactory; // Corrected assignment
+        _aspNetCoreProblemDetailsFactory = aspNetCoreProblemDetailsFactory; 
     }
 
     public IActionResult CreateProblemDetails(
