@@ -2,6 +2,7 @@
 <root>
     <data name="Ok" xml:space="preserve">
     <value>Ok</value>
+
   </data>
     <data name="Cancel" xml:space="preserve">
     <value>Cancel</value>
