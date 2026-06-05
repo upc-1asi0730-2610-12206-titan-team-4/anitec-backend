@@ -32,7 +32,7 @@ public class ProblemDetailsFactory
     public IActionResult CreateProblemDetails(
         ControllerBase controller,
         int statusCode,
-        Enum? errorEnum, // The specific error enum (IamError, ProfilesError, etc.)
+        Enum? errorEnum, 
         string detailMessage) // The localized message from the application service
     {
         // Leverage the base ProblemDetailsFactory for initial creation
