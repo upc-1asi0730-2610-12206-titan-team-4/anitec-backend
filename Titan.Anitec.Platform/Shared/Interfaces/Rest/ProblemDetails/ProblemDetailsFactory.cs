@@ -33,7 +33,7 @@ public class ProblemDetailsFactory
         ControllerBase controller,
         int statusCode,
         Enum? errorEnum, // The specific error enum (IamError, ProfilesError, etc.)
-        string detailMessage) // The localized message from the application service
+        string detailMessage) 
     {
         // Leverage the base ProblemDetailsFactory for initial creation
         var problemDetails = _aspNetCoreProblemDetailsFactory.CreateProblemDetails( // Corrected usage
