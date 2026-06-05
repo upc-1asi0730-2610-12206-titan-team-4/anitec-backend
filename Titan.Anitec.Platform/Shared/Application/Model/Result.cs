@@ -17,7 +17,27 @@ public class Result<T>
         Error = error;
     }
 
-  
+    public bool IsSuccess { get; }
+    public bool IsFailure => !IsSuccess;
+    public T? Value { get; } // Made nullable for failure cases
+    public string Message { get; } // New property
+    public Enum? Error { get; } // Changed type to Enum?
+
+    // Modified Success method to match new constructor
+    public static Result<T> Success(T value)
+    {
+        return new Result<T>(true, value, string.Empty, null);
+    }
+
+    // New Failure method using Enum? and string message
+    public static Result<T> Failure(Enum error, string message)
+    {
+        return new Result<T>(false, default, message, error);
+    }
+
+    // Removed old Failure(Error error) and Failure(string code, string message) methods.
+    // The previous implementation used a custom Error class.
+    // The new strategy replaces that with an Enum and a separate message string.
 }
 
 /// <summary>
