@@ -1,11 +1,4 @@
-// Added for Enum
 
-namespace Anitec.Platform.Shared.Application.Model;
-
-/// <summary>
-///     Generic Result class for Command Handlers in the Application Layer.
-/// </summary>
-/// <typeparam name="T">The type of the result value.</typeparam>
 public class Result<T>
 {
     // Modified constructor to include message and Enum? error
