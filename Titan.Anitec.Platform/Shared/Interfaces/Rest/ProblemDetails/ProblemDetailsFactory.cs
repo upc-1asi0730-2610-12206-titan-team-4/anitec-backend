@@ -7,7 +7,7 @@ using Microsoft.Extensions.Localization;
 // For Shared.Commons
 
 
-
+// For StatusCodes
 namespace Anitec.Platform.Shared.Interfaces.Rest.ProblemDetails;
 
 public class ProblemDetailsFactory
