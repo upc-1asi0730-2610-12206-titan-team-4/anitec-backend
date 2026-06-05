@@ -2,9 +2,7 @@ using System.Text.RegularExpressions;
 
 namespace Anitec.Platform.Shared.Infrastructure.Interfaces.AspNetCore.Configuration.Extensions;
 
-/// <summary>
-///     Extension methods for <see cref="string" />.
-/// </summary>
+
 public static partial class StringExtensions
 {
     /// <summary>
