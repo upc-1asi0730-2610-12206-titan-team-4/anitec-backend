@@ -3,9 +3,7 @@ using Microsoft.AspNetCore.Mvc.ApplicationModels;
 
 namespace Anitec.Platform.Shared.Infrastructure.Interfaces.AspNetCore.Configuration;
 
-/// <summary>
-///     This class is used to replace the default route naming convention with a kebab-case naming convention.
-/// </summary>
+
 public class KebabCaseRouteNamingConvention : IControllerModelConvention
 {
     /// <summary>
