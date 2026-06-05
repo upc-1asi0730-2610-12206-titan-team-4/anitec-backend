@@ -22,7 +22,7 @@ public class ProblemDetailsFactory
         IStringLocalizer<ErrorMessages> errorLocalizer,
         IStringLocalizer<CommonMessages> commonLocalizer, // Corrected to Commons
         Microsoft.AspNetCore.Mvc.Infrastructure.ProblemDetailsFactory
-            aspNetCoreProblemDetailsFactory) // Corrected injected type
+            aspNetCoreProblemDetailsFactory) 
     {
         _errorLocalizer = errorLocalizer;
         _commonLocalizer = commonLocalizer;
