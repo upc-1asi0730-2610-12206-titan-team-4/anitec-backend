@@ -1,14 +1,4 @@
-namespace Anitec.Platform.Shared.Domain.Repositories;
 
-/// <summary>
-///     Base repository interface for all repositories
-/// </summary>
-/// <remarks>
-///     This interface is used to define the basic CRUD operations for all repositories
-/// </remarks>
-/// <typeparam name="TEntity">
-///     The entity type for the repository
-/// </typeparam>
 public interface IBaseRepository<TEntity>
 {
     /// <summary>
