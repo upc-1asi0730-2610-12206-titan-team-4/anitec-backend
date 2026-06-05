@@ -15,7 +15,7 @@ public class ProblemDetailsFactory
     private readonly Microsoft.AspNetCore.Mvc.Infrastructure.ProblemDetailsFactory
         _aspNetCoreProblemDetailsFactory; 
 
-    private readonly IStringLocalizer<CommonMessages> _commonLocalizer; // Corrected to Commons
+    private readonly IStringLocalizer<CommonMessages> _commonLocalizer; 
     private readonly IStringLocalizer<ErrorMessages> _errorLocalizer;
 
     public ProblemDetailsFactory(
