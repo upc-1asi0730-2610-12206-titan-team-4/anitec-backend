@@ -13,7 +13,7 @@ namespace Anitec.Platform.Shared.Interfaces.Rest.ProblemDetails;
 public class ProblemDetailsFactory
 {
     private readonly Microsoft.AspNetCore.Mvc.Infrastructure.ProblemDetailsFactory
-        _aspNetCoreProblemDetailsFactory; // Corrected type and name
+        _aspNetCoreProblemDetailsFactory; 
 
     private readonly IStringLocalizer<CommonMessages> _commonLocalizer; // Corrected to Commons
     private readonly IStringLocalizer<ErrorMessages> _errorLocalizer;
