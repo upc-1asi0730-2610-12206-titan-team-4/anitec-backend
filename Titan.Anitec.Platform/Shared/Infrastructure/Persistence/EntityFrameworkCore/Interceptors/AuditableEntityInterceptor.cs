@@ -4,22 +4,6 @@ using Microsoft.EntityFrameworkCore.Diagnostics;
 
 namespace Anitec.Platform.Shared.Infrastructure.Persistence.EntityFrameworkCore.Interceptors;
 
-/// <summary>
-///     EF Core interceptor that automatically populates audit timestamps on any entity
-///     that implements <see cref="IAuditableEntity" />.
-/// </summary>
-/// <remarks>
-///     <list type="bullet">
-///         <item>
-///             <description><c>CreatedDate</c> — set once when the entity is first added.</description>
-///         </item>
-///         <item>
-///             <description><c>UpdatedDate</c> — refreshed on every addition or update.</description>
-///         </item>
-///     </list>
-///     Register this interceptor in <c>AppDbContext.OnConfiguring</c> so it applies to all
-///     bounded contexts sharing the same <see cref="DbContext" />.
-/// </remarks>
 public sealed class AuditableEntityInterceptor : SaveChangesInterceptor
 {
     /// <inheritdoc />
