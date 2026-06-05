@@ -8,6 +8,7 @@ namespace Anitec.Platform.Shared.Domain.Model.Entities;
 ///     have <see cref="CreatedAt" /> set once on first persistence and <see cref="UpdatedAt" />
 ///     refreshed on every subsequent save, via <c>AuditableEntityInterceptor</c>.
 /// </remarks>public interface IAuditableEntity
+public interface IAuditableEntity
 {
     /// <summary>
     ///     Gets or sets the UTC timestamp when the entity was first persisted.
