@@ -1,5 +1,6 @@
 using Anitec.Platform.Activities.Infrastructure.Persistence.EntityFrameworkCore.Configuration.Extensions;
 using Anitec.Platform.Analytics.Infrastructure.Persistence.EntityFrameworkCore.Configuration.Extensions;
+using Anitec.Platform.Clients.Infrastructure.Persistence.EntityFrameworkCore.Configuration.Extensions;
 using Anitec.Platform.Devices.Infrastructure.Persistence.EntityFrameworkCore.Configuration.Extensions;
 using Anitec.Platform.Financial.Infrastructure.Persistence.EntityFrameworkCore.Configuration.Extensions;
 using Anitec.Platform.Iam.Infrastructure.Persistence.EntityFrameworkCore.Configuration.Extensions;
@@ -49,6 +50,7 @@ public class AppDbContext(DbContextOptions options) : DbContext(options)
         builder.ApplyFinancialConfiguration();
         builder.ApplyActivitiesConfiguration();
         builder.ApplyAnalyticsConfiguration();
+        builder.ApplyClientsConfiguration();
         builder.ApplyDevicesConfiguration();
         builder.ApplyMetricsConfiguration();
         builder.ApplySubscriptionsConfiguration();
