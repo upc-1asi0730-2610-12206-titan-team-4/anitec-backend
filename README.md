@@ -14,8 +14,8 @@ Backend ASP.NET Core para AniTec, construido a partir de la estructura usada en 
 ## Bounded contexts
 
 - `Shared`: base comun, repositorios, Unit of Work, EF Core, middleware y problem details.
-- `Iam`: usuarios, sign-in, sign-up, JWT y hashing, basado en el repo del profesor.
-- `Profiles`: perfiles de usuario, basado en el repo del profesor.
+- `Iam`: usuarios, sign-in, sign-up, JWT y hashing.
+- `Profiles`: perfiles de usuario.
 - `Livestock`: rebanos y animales.
 - `Sanitary`: eventos sanitarios e historial medico de animales.
 - `Financial`: ingresos y egresos.
