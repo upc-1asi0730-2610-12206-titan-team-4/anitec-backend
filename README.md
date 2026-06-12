@@ -1,6 +1,6 @@
 # AniTec Platform Backend
 
-Backend ASP.NET Core para AniTec, construido a partir de la estructura usada en clase en `learning-center-platform-master`.
+Backend ASP.NET Core para AniTec.
 
 ## Tecnologias
 
