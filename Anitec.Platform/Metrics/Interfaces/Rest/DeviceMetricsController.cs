@@ -51,5 +51,11 @@ public class DeviceMetricsController(
         return Ok(DeviceMetricResourceFromEntityAssembler.ToResourceFromEntity(result.Value!));
     }
 
-    
+    [HttpDelete("{id:int}")]
+    public async Task<IActionResult> Delete(int id, CancellationToken cancellationToken)
+    {
+        var result = await commandService.Handle(new DeleteDeviceMetricCommand(id), cancellationToken);
+        if (result.IsFailure) return NotFound();
+        return NoContent();
+    }
 }
