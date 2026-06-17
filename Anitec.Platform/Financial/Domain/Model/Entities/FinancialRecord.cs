@@ -2,6 +2,7 @@ using Anitec.Platform.Financial.Domain.Model.Commands;
 
 namespace Anitec.Platform.Financial.Domain.Model.Entities;
 
+
 public class FinancialRecord
 {
     public FinancialRecord()
