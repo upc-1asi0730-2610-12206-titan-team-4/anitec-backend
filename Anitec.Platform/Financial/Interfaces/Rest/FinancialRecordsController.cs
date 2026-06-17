@@ -10,6 +10,7 @@ using Swashbuckle.AspNetCore.Annotations;
 
 namespace Anitec.Platform.Financial.Interfaces.Rest;
 
+
 [ApiController]
 [Route("api/v1/financial-records")]
 [Produces(MediaTypeNames.Application.Json)]

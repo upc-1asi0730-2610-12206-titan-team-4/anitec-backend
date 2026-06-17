@@ -3,6 +3,7 @@ using Anitec.Platform.Financial.Interfaces.Rest.Resources;
 
 namespace Anitec.Platform.Financial.Interfaces.Rest.Transform;
 
+
 public static class FinancialRecordResourceFromEntityAssembler
 {
     public static FinancialRecordResource ToResourceFromEntity(FinancialRecord entity)

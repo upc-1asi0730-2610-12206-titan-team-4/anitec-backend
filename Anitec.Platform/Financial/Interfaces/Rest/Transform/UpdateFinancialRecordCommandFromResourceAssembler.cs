@@ -3,6 +3,7 @@ using Anitec.Platform.Financial.Interfaces.Rest.Resources;
 
 namespace Anitec.Platform.Financial.Interfaces.Rest.Transform;
 
+
 public static class UpdateFinancialRecordCommandFromResourceAssembler
 {
     public static UpdateFinancialRecordCommand ToCommandFromResource(int id, CreateFinancialRecordResource resource)
