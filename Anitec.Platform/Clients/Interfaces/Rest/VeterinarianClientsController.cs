@@ -14,6 +14,7 @@ using Anitec.Platform.Livestock.Domain.Model.Queries;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 
+
 namespace Anitec.Platform.Clients.Interfaces.Rest;
 
 [ApiController]
