@@ -6,3 +6,4 @@ namespace Anitec.Platform.Subscriptions.Domain.Repositories;
 public interface ISubscriptionRepository : IBaseRepository<Subscription>
 {
 }
+
