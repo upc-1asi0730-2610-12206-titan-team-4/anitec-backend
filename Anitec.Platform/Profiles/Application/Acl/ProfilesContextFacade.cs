@@ -32,5 +32,11 @@ public class ProfilesContextFacade(
         return result.Value?.Id ?? 0;
     }
 
-    
+    // inheritedDoc
+    public async Task<int> FetchProfileIdByEmail(string email, CancellationToken cancellationToken)
+    {
+        var getProfileByEmailQuery = new GetProfileByEmailQuery(new EmailAddress(email));
+        var profile = await profileQueryService.Handle(getProfileByEmailQuery, cancellationToken);
+        return profile?.Id ?? 0;
+    }
 }
