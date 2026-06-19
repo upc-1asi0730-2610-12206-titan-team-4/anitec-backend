@@ -9,6 +9,7 @@ namespace Anitec.Platform.Iam.Application.Acl;
 public class IamContextFacade(IUserCommandService userCommandService, IUserQueryService userQueryService)
     : IIamContextFacade
 {
+
     public async Task<int> CreateUser(string username, string password, CancellationToken cancellationToken)
     {
         var signUpCommand = new SignUpCommand(username, password, username, "Rancher");
