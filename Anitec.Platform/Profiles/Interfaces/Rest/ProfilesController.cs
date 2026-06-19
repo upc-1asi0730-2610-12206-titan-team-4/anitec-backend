@@ -67,15 +67,5 @@ public class ProfilesController(
         );
     }
 
-    [HttpGet]
-    [SwaggerOperation("Get All Profiles", "Get all profiles.", OperationId = "GetAllProfiles")]
-    [SwaggerResponse(200, "The profiles were found and returned.", typeof(IEnumerable<ProfileResource>))]
-    [SwaggerResponse(404, "The profiles were not found.")]
-    public async Task<IActionResult> GetAllProfiles(CancellationToken cancellationToken)
-    {
-        var getAllProfilesQuery = new GetAllProfilesQuery();
-        var profiles = await profileQueryService.Handle(getAllProfilesQuery, cancellationToken);
-        var profileResources = profiles.Select(ProfileResourceFromEntityAssembler.ToResourceFromEntity);
-        return Ok(profileResources);
-    }
+    
 }
