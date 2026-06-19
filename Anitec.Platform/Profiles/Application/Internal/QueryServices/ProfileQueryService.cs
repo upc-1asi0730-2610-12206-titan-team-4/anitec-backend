@@ -31,3 +31,6 @@ public class ProfileQueryService(IProfileRepository profileRepository) : IProfil
         return await profileRepository.FindByIdAsync(query.ProfileId, cancellationToken);
     }
 }
+
+
+
