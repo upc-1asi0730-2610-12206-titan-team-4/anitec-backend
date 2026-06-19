@@ -19,5 +19,3 @@ public class FarmActivityQueryService(IFarmActivityRepository repository) : IFar
 }
 
 
-
-
