@@ -1,4 +1,12 @@
-
+using System.Net.Mime;
+using Anitec.Platform.Activities.Application.CommandServices;
+using Anitec.Platform.Activities.Application.QueryServices;
+using Anitec.Platform.Activities.Domain.Model.Commands;
+using Anitec.Platform.Activities.Domain.Model.Queries;
+using Anitec.Platform.Activities.Interfaces.Rest.Resources;
+using Anitec.Platform.Activities.Interfaces.Rest.Transform;
+using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace Anitec.Platform.Activities.Interfaces.Rest;
 
