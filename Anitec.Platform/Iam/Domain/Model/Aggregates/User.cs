@@ -14,6 +14,7 @@ public partial class User(string username, string passwordHash, string fullName,
 {
     public User() : this(string.Empty, string.Empty, string.Empty, "Rancher")
     {
+        
     }
 
     public int Id { get; }

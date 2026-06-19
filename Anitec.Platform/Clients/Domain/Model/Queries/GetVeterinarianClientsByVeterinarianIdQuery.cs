@@ -1,7 +1,3 @@
-namespace Anitec.Platform.Clients.Domain.Model;
+namespace Anitec.Platform.Clients.Domain.Model.Queries;
 
-public enum ClientsError
-{
-    VeterinarianClientNotFound,
-    VeterinarianClientAlreadyExists
-}
+public record GetVeterinarianClientsByVeterinarianIdQuery(int VeterinarianId);

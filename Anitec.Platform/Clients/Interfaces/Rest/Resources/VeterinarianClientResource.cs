@@ -1,4 +1,4 @@
-namespace Anitec.Platform.Clients.Interfaces.Rest.Resources;
+ namespace Anitec.Platform.Clients.Interfaces.Rest.Resources;
 
 public record VeterinarianClientResource(
     int Id,

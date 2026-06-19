@@ -23,7 +23,6 @@ public interface IUserCommandService
         * <returns>The authenticated user and the JWT token</returns>
         */
     Task<Result<(User user, string token)>> Handle(SignInCommand command, CancellationToken cancellationToken);
-
     /**
         * <summary>
         *     Handle sign up command

@@ -5,7 +5,6 @@ using Anitec.Platform.Shared.Infrastructure.Persistence.EntityFrameworkCore.Repo
 using Microsoft.EntityFrameworkCore;
 
 namespace Anitec.Platform.Iam.Infrastructure.Persistence.EntityFrameworkCore.Repositories;
-
 /**
  * <summary>
  *     The user repository
