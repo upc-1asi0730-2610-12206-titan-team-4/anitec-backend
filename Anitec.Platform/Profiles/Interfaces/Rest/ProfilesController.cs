@@ -1,14 +1,4 @@
-using System.Net.Mime;
-using Anitec.Platform.Profiles.Application.CommandServices;
-using Anitec.Platform.Profiles.Application.QueryServices;
-using Anitec.Platform.Profiles.Domain.Model.Queries;
-using Anitec.Platform.Profiles.Interfaces.Rest.Resources;
-using Anitec.Platform.Profiles.Interfaces.Rest.Transform;
-using Anitec.Platform.Resources.Errors;
-using Anitec.Platform.Shared.Interfaces.Rest.ProblemDetails;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Localization;
-using Swashbuckle.AspNetCore.Annotations;
+
 // Corrected using directive
 // For ProblemDetailsFactory
 
