@@ -6,7 +6,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Anitec.Platform.Clients.Infrastructure.Persistence.EntityFrameworkCore.Repositories;
 
-
 public class VeterinarianClientRepository(AppDbContext context)
     : BaseRepository<VeterinarianClient>(context), IVeterinarianClientRepository
 {
