@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Anitec.Platform.Clients.Infrastructure.Persistence.EntityFrameworkCore.Configuration.Extensions;
 
+
 public static class ModelBuilderExtensions
 {
     public static void ApplyClientsConfiguration(this ModelBuilder builder)
