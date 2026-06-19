@@ -11,4 +11,5 @@ public static class IamErrors
 
     public static readonly Error UserCreationFailed =
         new("Iam.UserCreationFailed", "An error occurred while creating the user.");
+    
 }
