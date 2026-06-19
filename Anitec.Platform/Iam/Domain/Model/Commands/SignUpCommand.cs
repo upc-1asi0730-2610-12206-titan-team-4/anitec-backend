@@ -1,5 +1,4 @@
 namespace Anitec.Platform.Iam.Domain.Model.Commands;
-
 /**
  * <summary>
  *     The sign up command
