@@ -2,6 +2,7 @@ using Anitec.Platform.Clients.Domain.Model.Commands;
 
 namespace Anitec.Platform.Clients.Domain.Model.Entities;
 
+
 public class VeterinarianClient
 {
     public VeterinarianClient()
