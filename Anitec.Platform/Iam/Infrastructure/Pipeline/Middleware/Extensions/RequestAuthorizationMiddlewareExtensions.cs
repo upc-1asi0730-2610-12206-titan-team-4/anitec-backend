@@ -15,4 +15,5 @@ public static class RequestAuthorizationMiddlewareExtensions
     {
         return builder.UseMiddleware<RequestAuthorizationMiddleware>();
     }
+    
 }
