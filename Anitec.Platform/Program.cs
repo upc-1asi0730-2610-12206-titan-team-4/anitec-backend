@@ -90,9 +90,6 @@ using ProblemDetailsFactory = Anitec.Platform.Shared.Interfaces.Rest.ProblemDeta
 
 var builder = WebApplication.CreateBuilder(args);
 
-var port = Environment.GetEnvironmentVariable("PORT") ?? "5191";
-builder.WebHost.UseUrls($"http://0.0.0.0:{port}");
-
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
 builder.Services.AddControllers(options => options.Conventions.Add(new KebabCaseRouteNamingConvention()))
     .AddDataAnnotationsLocalization();
