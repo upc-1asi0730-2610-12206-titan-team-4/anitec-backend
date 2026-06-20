@@ -90,6 +90,9 @@ using ProblemDetailsFactory = Anitec.Platform.Shared.Interfaces.Rest.ProblemDeta
 
 var builder = WebApplication.CreateBuilder(args);
 
+var port = Environment.GetEnvironmentVariable("PORT") ?? "5191";
+builder.WebHost.UseUrls($"http://0.0.0.0:{port}");
+
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
 builder.Services.AddControllers(options => options.Conventions.Add(new KebabCaseRouteNamingConvention()))
     .AddDataAnnotationsLocalization();
@@ -241,9 +244,13 @@ using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
     var context = services.GetRequiredService<AppDbContext>();
-    var hashingService = services.GetRequiredService<IHashingService>();
     context.Database.Migrate();
-    await AppDbContextSeeder.SeedDevelopmentDataAsync(context, hashingService);
+
+    if (app.Environment.IsDevelopment())
+    {
+        var hashingService = services.GetRequiredService<IHashingService>();
+        await AppDbContextSeeder.SeedDevelopmentDataAsync(context, hashingService);
+    }
 }
 
 app.UseGlobalExceptionHandler();
@@ -264,7 +271,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseCors("AllowAllPolicy");
 app.UseRequestAuthorization();
-app.UseHttpsRedirection();
+if (!app.Environment.IsProduction())
+    app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
 app.Run();
