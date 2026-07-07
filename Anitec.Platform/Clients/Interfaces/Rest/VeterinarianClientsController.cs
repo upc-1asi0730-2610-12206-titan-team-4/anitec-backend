@@ -8,6 +8,7 @@ using Anitec.Platform.Clients.Interfaces.Rest.Resources;
 using Anitec.Platform.Iam.Application.QueryServices;
 using Anitec.Platform.Iam.Domain.Model.Aggregates;
 using Anitec.Platform.Iam.Domain.Model.Queries;
+using Anitec.Platform.Iam.Infrastructure.Pipeline.Middleware.Attributes;
 using Anitec.Platform.Livestock.Application.QueryServices;
 using Anitec.Platform.Livestock.Domain.Model.Entities;
 using Anitec.Platform.Livestock.Domain.Model.Queries;
@@ -16,6 +17,7 @@ using Swashbuckle.AspNetCore.Annotations;
 
 namespace Anitec.Platform.Clients.Interfaces.Rest;
 
+[Authorize("Veterinarian")]
 [ApiController]
 [Route("api/v1/veterinarian")]
 [Produces(MediaTypeNames.Application.Json)]

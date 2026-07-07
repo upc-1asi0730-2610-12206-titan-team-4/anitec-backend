@@ -5,11 +5,13 @@ using Anitec.Platform.Analytics.Domain.Model.Commands;
 using Anitec.Platform.Analytics.Domain.Model.Queries;
 using Anitec.Platform.Analytics.Interfaces.Rest.Resources;
 using Anitec.Platform.Analytics.Interfaces.Rest.Transform;
+using Anitec.Platform.Iam.Infrastructure.Pipeline.Middleware.Attributes;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 
 namespace Anitec.Platform.Analytics.Interfaces.Rest;
 
+[Authorize("Rancher", "Veterinarian")]
 [ApiController]
 [Route("api/v1/report-metrics")]
 [Produces(MediaTypeNames.Application.Json)]

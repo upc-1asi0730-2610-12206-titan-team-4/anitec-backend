@@ -68,9 +68,13 @@ public class UserCommandService(
             return Result.Failure(IamError.UsernameAlreadyTaken,
                 _localizer[nameof(IamError.UsernameAlreadyTaken), command.Username]);
 
+        var role = NormalizeRole(command.Role);
+
+        if (role is null)
+            return Result.Failure(IamError.InvalidRole, _localizer[nameof(IamError.InvalidRole)]);
+
         var hashedPassword = hashingService.HashPassword(command.Password);
         var fullName = string.IsNullOrWhiteSpace(command.FullName) ? command.Username : command.FullName;
-        var role = string.IsNullOrWhiteSpace(command.Role) ? "Rancher" : command.Role;
         var user = new User(command.Username, hashedPassword, fullName, role);
         try
         {
@@ -92,5 +96,13 @@ public class UserCommandService(
             // Log the exception details here if an ILogger is injected
             return Result.Failure(IamError.InternalServerError, _localizer[nameof(IamError.InternalServerError)]);
         }
+    }
+
+    private static string? NormalizeRole(string role)
+    {
+        if (string.IsNullOrWhiteSpace(role)) return null;
+        if (role.Equals("Rancher", StringComparison.OrdinalIgnoreCase)) return "Rancher";
+        if (role.Equals("Veterinarian", StringComparison.OrdinalIgnoreCase)) return "Veterinarian";
+        return null;
     }
 }

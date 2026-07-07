@@ -12,10 +12,13 @@
     <data name="IamError.UsernameAlreadyTaken" xml:space="preserve">
     <value>El nombre de usuario {0} ya está en uso.</value>
   </data>
-    <data name="IamError.InvalidCredentials" xml:space="preserve">
+  <data name="IamError.InvalidCredentials" xml:space="preserve">
     <value>Nombre de usuario o contraseña inválidos.</value>
   </data>
-    <data name="IamError.OperationCancelled" xml:space="preserve">
+  <data name="IamError.InvalidRole" xml:space="preserve">
+    <value>Rol invalido. Usa Rancher o Veterinarian.</value>
+  </data>
+  <data name="IamError.OperationCancelled" xml:space="preserve">
     <value>La operación de usuario fue cancelada.</value>
   </data>
     <data name="IamError.DatabaseError" xml:space="preserve">

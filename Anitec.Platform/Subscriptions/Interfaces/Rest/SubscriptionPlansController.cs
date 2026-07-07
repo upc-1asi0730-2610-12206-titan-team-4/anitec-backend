@@ -5,11 +5,13 @@ using Anitec.Platform.Subscriptions.Domain.Model.Commands;
 using Anitec.Platform.Subscriptions.Domain.Model.Queries;
 using Anitec.Platform.Subscriptions.Interfaces.Rest.Resources;
 using Anitec.Platform.Subscriptions.Interfaces.Rest.Transform;
+using Anitec.Platform.Iam.Infrastructure.Pipeline.Middleware.Attributes;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 
 namespace Anitec.Platform.Subscriptions.Interfaces.Rest;
 
+[Authorize("Rancher", "Veterinarian")]
 [ApiController]
 [Route("api/v1/subscription-plans")]
 [Produces(MediaTypeNames.Application.Json)]

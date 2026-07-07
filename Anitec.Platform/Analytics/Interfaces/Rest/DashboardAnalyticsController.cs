@@ -8,6 +8,7 @@ using Anitec.Platform.Devices.Application.QueryServices;
 using Anitec.Platform.Devices.Domain.Model.Queries;
 using Anitec.Platform.Financial.Application.QueryServices;
 using Anitec.Platform.Financial.Domain.Model.Queries;
+using Anitec.Platform.Iam.Infrastructure.Pipeline.Middleware.Attributes;
 using Anitec.Platform.Livestock.Application.QueryServices;
 using Anitec.Platform.Livestock.Domain.Model.Entities;
 using Anitec.Platform.Livestock.Domain.Model.Queries;
@@ -18,6 +19,7 @@ using Swashbuckle.AspNetCore.Annotations;
 
 namespace Anitec.Platform.Analytics.Interfaces.Rest;
 
+[Authorize("Rancher", "Veterinarian")]
 [ApiController]
 [Route("api/v1/analytics")]
 [Produces(MediaTypeNames.Application.Json)]
