@@ -10,4 +10,9 @@ public class PaymentQueryService(IPaymentRepository repository) : IPaymentQueryS
     {
         return await repository.FindByUserIdAsync(userId, cancellationToken);
     }
+
+    public async Task<Payment?> Handle(string providerPaymentId, CancellationToken cancellationToken)
+    {
+        return await repository.FindByProviderPaymentIdAsync(providerPaymentId, cancellationToken);
+    }
 }
