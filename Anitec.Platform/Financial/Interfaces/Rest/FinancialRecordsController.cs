@@ -5,12 +5,14 @@ using Anitec.Platform.Financial.Domain.Model.Commands;
 using Anitec.Platform.Financial.Domain.Model.Queries;
 using Anitec.Platform.Financial.Interfaces.Rest.Resources;
 using Anitec.Platform.Financial.Interfaces.Rest.Transform;
+using Anitec.Platform.Iam.Infrastructure.Pipeline.Middleware.Attributes;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 
 namespace Anitec.Platform.Financial.Interfaces.Rest;
 
 
+[Authorize("Rancher")]
 [ApiController]
 [Route("api/v1/financial-records")]
 [Produces(MediaTypeNames.Application.Json)]

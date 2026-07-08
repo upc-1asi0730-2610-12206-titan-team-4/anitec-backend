@@ -5,11 +5,13 @@ using Anitec.Platform.Sanitary.Domain.Model.Commands;
 using Anitec.Platform.Sanitary.Domain.Model.Queries;
 using Anitec.Platform.Sanitary.Interfaces.Rest.Resources;
 using Anitec.Platform.Sanitary.Interfaces.Rest.Transform;
+using Anitec.Platform.Iam.Infrastructure.Pipeline.Middleware.Attributes;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 
 namespace Anitec.Platform.Sanitary.Interfaces.Rest;
 
+[Authorize("Rancher", "Veterinarian")]
 [ApiController]
 [Route("api/v1/health-events")]
 [Produces(MediaTypeNames.Application.Json)]

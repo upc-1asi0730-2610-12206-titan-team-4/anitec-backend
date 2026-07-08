@@ -4,6 +4,7 @@ using Anitec.Platform.Profiles.Application.QueryServices;
 using Anitec.Platform.Profiles.Domain.Model.Queries;
 using Anitec.Platform.Profiles.Interfaces.Rest.Resources;
 using Anitec.Platform.Profiles.Interfaces.Rest.Transform;
+using Anitec.Platform.Iam.Infrastructure.Pipeline.Middleware.Attributes;
 using Anitec.Platform.Resources.Errors;
 using Anitec.Platform.Shared.Interfaces.Rest.ProblemDetails;
 using Microsoft.AspNetCore.Mvc;
@@ -16,6 +17,7 @@ using Swashbuckle.AspNetCore.Annotations;
 
 namespace Anitec.Platform.Profiles.Interfaces.Rest;
 
+[Authorize("Rancher", "Veterinarian")]
 [ApiController]
 [Route("api/v1/[controller]")]
 [Produces(MediaTypeNames.Application.Json)]

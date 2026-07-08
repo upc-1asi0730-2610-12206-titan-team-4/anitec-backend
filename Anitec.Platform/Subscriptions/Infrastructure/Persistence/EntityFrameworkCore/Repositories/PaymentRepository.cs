@@ -15,4 +15,10 @@ public class PaymentRepository(AppDbContext context) : BaseRepository<Payment>(c
             .OrderByDescending(payment => payment.PaidAt)
             .ToListAsync(cancellationToken);
     }
+
+    public async Task<Payment?> FindByProviderPaymentIdAsync(string providerPaymentId, CancellationToken cancellationToken)
+    {
+        return await Context.Set<Payment>()
+            .FirstOrDefaultAsync(payment => payment.ProviderPaymentId == providerPaymentId, cancellationToken);
+    }
 }

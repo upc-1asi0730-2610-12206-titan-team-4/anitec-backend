@@ -5,6 +5,7 @@ using Anitec.Platform.Devices.Domain.Model.Commands;
 using Anitec.Platform.Devices.Domain.Model.Queries;
 using Anitec.Platform.Devices.Interfaces.Rest.Resources;
 using Anitec.Platform.Devices.Interfaces.Rest.Transform;
+using Anitec.Platform.Iam.Infrastructure.Pipeline.Middleware.Attributes;
 using Anitec.Platform.Metrics.Application.QueryServices;
 using Anitec.Platform.Metrics.Domain.Model.Queries;
 using Anitec.Platform.Metrics.Interfaces.Rest.Transform;
@@ -13,6 +14,7 @@ using Swashbuckle.AspNetCore.Annotations;
 
 namespace Anitec.Platform.Devices.Interfaces.Rest;
 
+[Authorize("Rancher", "Veterinarian")]
 [ApiController]
 [Route("api/v1/devices")]
 [Produces(MediaTypeNames.Application.Json)]
@@ -37,6 +39,7 @@ public class DevicesController(
         return Ok(DeviceResourceFromEntityAssembler.ToResourceFromEntity(result));
     }
 
+    [Authorize("Rancher")]
     [HttpPost]
     public async Task<IActionResult> Create(CreateDeviceResource resource, CancellationToken cancellationToken)
     {
@@ -46,6 +49,7 @@ public class DevicesController(
             DeviceResourceFromEntityAssembler.ToResourceFromEntity(result.Value));
     }
 
+    [Authorize("Rancher")]
     [HttpPut("{id:int}")]
     public async Task<IActionResult> Update(int id, CreateDeviceResource resource, CancellationToken cancellationToken)
     {
@@ -55,6 +59,7 @@ public class DevicesController(
         return Ok(DeviceResourceFromEntityAssembler.ToResourceFromEntity(result.Value!));
     }
 
+    [Authorize("Rancher")]
     [HttpDelete("{id:int}")]
     public async Task<IActionResult> Delete(int id, CancellationToken cancellationToken)
     {

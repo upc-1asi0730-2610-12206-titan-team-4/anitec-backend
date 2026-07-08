@@ -1,4 +1,5 @@
 using System.Net.Mime;
+using Anitec.Platform.Iam.Infrastructure.Pipeline.Middleware.Attributes;
 using Anitec.Platform.Livestock.Application.CommandServices;
 using Anitec.Platform.Livestock.Application.QueryServices;
 using Anitec.Platform.Livestock.Domain.Model.Commands;
@@ -10,6 +11,7 @@ using Swashbuckle.AspNetCore.Annotations;
 
 namespace Anitec.Platform.Livestock.Interfaces.Rest;
 
+[Authorize("Rancher", "Veterinarian")]
 [ApiController]
 [Route("api/v1/animals")]
 [Produces(MediaTypeNames.Application.Json)]
@@ -33,6 +35,7 @@ public class AnimalsController(
         return Ok(AnimalResourceFromEntityAssembler.ToResourceFromEntity(result));
     }
 
+    [Authorize("Rancher")]
     [HttpPost]
     public async Task<IActionResult> Create(CreateAnimalResource resource, CancellationToken cancellationToken)
     {
@@ -42,6 +45,7 @@ public class AnimalsController(
             AnimalResourceFromEntityAssembler.ToResourceFromEntity(result.Value));
     }
 
+    [Authorize("Rancher")]
     [HttpPut("{id:int}")]
     public async Task<IActionResult> Update(int id, CreateAnimalResource resource, CancellationToken cancellationToken)
     {
@@ -51,6 +55,7 @@ public class AnimalsController(
         return Ok(AnimalResourceFromEntityAssembler.ToResourceFromEntity(result.Value!));
     }
 
+    [Authorize("Rancher")]
     [HttpDelete("{id:int}")]
     public async Task<IActionResult> Delete(int id, CancellationToken cancellationToken)
     {

@@ -1,4 +1,5 @@
 using System.Net.Mime;
+using Anitec.Platform.Iam.Infrastructure.Pipeline.Middleware.Attributes;
 using Anitec.Platform.Metrics.Application.CommandServices;
 using Anitec.Platform.Metrics.Application.QueryServices;
 using Anitec.Platform.Metrics.Domain.Model.Commands;
@@ -10,6 +11,7 @@ using Swashbuckle.AspNetCore.Annotations;
 
 namespace Anitec.Platform.Metrics.Interfaces.Rest;
 
+[Authorize("Rancher", "Veterinarian")]
 [ApiController]
 [Route("api/v1/device-metrics")]
 [Produces(MediaTypeNames.Application.Json)]

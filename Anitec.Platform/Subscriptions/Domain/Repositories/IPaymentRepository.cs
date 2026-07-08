@@ -6,4 +6,5 @@ namespace Anitec.Platform.Subscriptions.Domain.Repositories;
 public interface IPaymentRepository : IBaseRepository<Payment>
 {
     Task<IEnumerable<Payment>> FindByUserIdAsync(int userId, CancellationToken cancellationToken);
+    Task<Payment?> FindByProviderPaymentIdAsync(string providerPaymentId, CancellationToken cancellationToken);
 }

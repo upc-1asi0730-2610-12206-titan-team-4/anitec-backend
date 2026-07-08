@@ -6,6 +6,7 @@ public enum IamError
     UserNotFound,
     UsernameAlreadyTaken,
     InvalidCredentials,
+    InvalidRole,
     OperationCancelled,
     DatabaseError,
     InternalServerError,
