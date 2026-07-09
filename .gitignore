@@ -28,9 +28,6 @@ packages/
 *.coverage
 *.coveragxml
 
-## Entity Framework Core
-Migrations/*snapshot.cs
-
 ## Logs y archivos temporales
 *.log
 *.tmp
