@@ -39,8 +39,15 @@ public class HerdsController(
     [HttpPost]
     public async Task<IActionResult> Create(CreateHerdResource resource, CancellationToken cancellationToken)
     {
+        if (string.IsNullOrWhiteSpace(resource.Name)) return BadRequest(new { message = "Herd name is required." });
+        if (string.IsNullOrWhiteSpace(resource.Location)) return BadRequest(new { message = "Herd location is required." });
+        if (string.IsNullOrWhiteSpace(resource.Owner)) return BadRequest(new { message = "Herd owner is required." });
+        if (resource.OwnerId <= 0) return BadRequest(new { message = "OwnerId must be greater than zero." });
+        if (string.IsNullOrWhiteSpace(resource.MainType)) return BadRequest(new { message = "Main type is required." });
+
         var command = CreateHerdCommandFromResourceAssembler.ToCommandFromResource(resource);
         var result = await commandService.Handle(command, cancellationToken);
+        if (result.IsFailure) return BadRequest(new { message = result.Message });
         return CreatedAtAction(nameof(GetById), new { id = result.Value!.Id },
             HerdResourceFromEntityAssembler.ToResourceFromEntity(result.Value));
     }

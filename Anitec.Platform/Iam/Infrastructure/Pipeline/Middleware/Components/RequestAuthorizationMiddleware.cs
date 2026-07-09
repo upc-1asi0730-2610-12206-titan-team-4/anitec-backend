@@ -62,17 +62,31 @@ public class RequestAuthorizationMiddleware(RequestDelegate next)
         }
 
         // get token from request header
-        var token = context.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
+        var authorizationHeader = context.Request.Headers["Authorization"].FirstOrDefault();
+        if (string.IsNullOrWhiteSpace(authorizationHeader))
+        {
+            await WriteUnauthorizedAsync(context);
+            return;
+        }
 
+        var token = authorizationHeader.StartsWith("Bearer ", StringComparison.OrdinalIgnoreCase)
+            ? authorizationHeader["Bearer ".Length..].Trim()
+            : authorizationHeader.Trim();
 
-        // if token is null then throw exception
-        if (token == null) throw new Exception("Null or invalid token");
+        if (string.IsNullOrWhiteSpace(token))
+        {
+            await WriteUnauthorizedAsync(context);
+            return;
+        }
 
         // validate token
         var userId = await tokenService.ValidateToken(token);
 
-        // if token is invalid then throw exception
-        if (userId == null) throw new Exception("Invalid token");
+        if (userId == null)
+        {
+            await WriteUnauthorizedAsync(context);
+            return;
+        }
 
         // get user by id
         var getUserByIdQuery = new GetUserByIdQuery(userId.Value);
@@ -80,8 +94,21 @@ public class RequestAuthorizationMiddleware(RequestDelegate next)
         // set user in HttpContext.Items["User"]
 
         var user = await userQueryService.Handle(getUserByIdQuery, context.RequestAborted);
+        if (user is null)
+        {
+            await WriteUnauthorizedAsync(context);
+            return;
+        }
+
         context.Items["User"] = user;
         // call next middleware
         await next(context);
+    }
+
+    private static async Task WriteUnauthorizedAsync(HttpContext context)
+    {
+        context.Response.StatusCode = StatusCodes.Status401Unauthorized;
+        context.Response.ContentType = "application/json";
+        await context.Response.WriteAsync("{\"title\":\"Unauthorized\",\"status\":401,\"detail\":\"Missing or invalid token\"}");
     }
 }
